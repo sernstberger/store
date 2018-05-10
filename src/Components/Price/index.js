@@ -14,8 +14,8 @@ const styles = {
         flexGrow: 1,
     },
     price: {
-      // color: "green",
       display: "inline-block",
+      fontWeight: 700,
       position: "relative",
       zIndex: 1,
 
@@ -40,7 +40,7 @@ function Price(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-          <Typography variant="title" className={classes.price}>
+          <Typography variant="headline" className={classes.price}>
             $100.00
           </Typography>
         </div>

@@ -23,6 +23,23 @@ import Home from "./Containers/Home"
 import TopNav from "./Components/TopNav";
 import Footer from "./Components/Footer";
 
+
+
+
+
+import { MuiThemeProvider } from 'material-ui/styles';
+import defaultTheme from "./assets/styles/theme";
+
+
+
+
+
+
+
+
+
+
+
 const drawerWidth = 300;
 
 const styles = theme => ({
@@ -91,65 +108,67 @@ class App extends React.Component {
     );
 
     return (
-      <div className={classes.root}>
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-                Store
-            </Typography>
-            <Tabs
-              // value={value}
-              // onChange={this.handleChange}
-            >
-              <Tab label="New" />
-              <Tab label="Products" />
-              <Tab label="Rooms" href="#basic-tabs" />
-              <Tab label="Inspiration" />
-            </Tabs>
-          </Toolbar>
-        </AppBar>
+      <MuiThemeProvider theme={defaultTheme}>
+        <div className={classes.root}>
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerToggle}
+                className={classes.navIconHide}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="title" color="inherit" className={classes.flex}>
+                  Store
+              </Typography>
+              <Tabs
+                // value={value}
+                // onChange={this.handleChange}
+              >
+                <Tab label="New" />
+                <Tab label="Products" />
+                <Tab label="Rooms" href="#basic-tabs" />
+                <Tab label="Inspiration" />
+              </Tabs>
+            </Toolbar>
+          </AppBar>
 
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Home />
-          <Footer />
-        </main>
-        <Hidden mdUp>
-          <Drawer
-            variant="temporary"
-            anchor="right"
-            open={this.state.mobileOpen}
-            onClose={this.handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden smDown implementation="css">
-          <Drawer
-            variant="permanent"
-            open
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </div>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            <Home />
+            <Footer />
+          </main>
+          <Hidden mdUp>
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={this.state.mobileOpen}
+              onClose={this.handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+          <Hidden smDown implementation="css">
+            <Drawer
+              variant="permanent"
+              open
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
@@ -159,4 +178,64 @@ App.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
+// export default withStyles(styles, { withTheme: true })(App);
 export default withStyles(styles, { withTheme: true })(App);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { Component } from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+
+// import Footer from "./components/Footer";
+// import Header from "./components/Header";
+
+// import Home from "./pages/Home";
+// import Teams from "./pages/Teams";
+// import Post from "./pages/Post";
+
+// import { MuiThemeProvider } from 'material-ui/styles';
+// import defaultTheme from "./assets/styles/theme";
+
+// import { Route } from 'react-router-dom';
+
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <MuiThemeProvider theme={defaultTheme}>
+//           <Header />
+
+//           <Route exact path="/" component={ Home } />
+//           <Route path="/teams" component={ Teams } />
+//           <Route path="/post" component={ Post } />
+
+//           <Footer />
+//         </MuiThemeProvider>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
